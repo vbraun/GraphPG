@@ -1,0 +1,14 @@
+#!/usr/bin/env python
+
+import os
+import sys
+
+try:
+    from graph_process import cmdline
+except ImportError:
+    sys.path.insert(0, os.path.dirname(__file__))
+    from graph_process import cmdline
+
+
+cmdline.run()
+
