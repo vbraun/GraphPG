@@ -7,3 +7,5 @@
 \#*\#
 .#*
 /.cache/
+/GraphPG.egg-info/
+/dist

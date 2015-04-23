@@ -6,9 +6,9 @@ Resource Usage of a Process Group
 ---------------------------------------
 
 This tool adds up CPU and RSS (actually used RAM, as opposed to
-virtual allocaitons) of all processes of a group of processes. The
+virtual allocations) of all processes of a group of processes. The
 intended use case is to visualize parallel compilation runs, and how
-they use cpu and ram.
+they use CPU and RAM.
 
 
 Usage

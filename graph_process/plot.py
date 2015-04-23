@@ -3,7 +3,11 @@
 Plot Resource Usage Over Time
 """
 
+import os
 import math
+import tempfile
+import matplotlib
+import subprocess
 import matplotlib.pyplot as plt
 
 
@@ -35,7 +39,16 @@ class Graphics(object):
         self.rss.fill_between(x, mb, color=color, alpha=0.3)
         self.rss.plot(x, mb, color=color)
         self.rss.set_ylim([0.0, max(mb)])
-        
+
     def show(self):
         plt.grid(True)
-        plt.show()
+        if matplotlib.get_backend() in matplotlib.rcsetup.interactive_bk:
+            plt.show()
+        else:
+            self.open_viewer()
+
+    def open_viewer(self):
+        with tempfile.NamedTemporaryFile(suffix='.svg', delete=False) as tmpfile:
+            plt.savefig(tmpfile, format='svg')
+        subprocess.check_call(['xdg-open', tmpfile.name])
+
