@@ -41,7 +41,7 @@ class ProcessSample(object):
         """
         self.rss += process.get_memory_info().rss
         self.cpu += process.get_cpu_percent()
-        self.processes.append(' '.join(process.cmdline))
+        self.processes.append(' '.join(process.cmdline()))
                 
     def collect_data(self):
         """
