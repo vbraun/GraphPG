@@ -39,8 +39,8 @@ class ProcessSample(object):
             process (psutil.Process): the process whose metadata
             should be added to the sample.
         """
-        self.rss += process.get_memory_info().rss
-        self.cpu += process.get_cpu_percent()
+        self.rss += process.memory_info().rss
+        self.cpu += process.cpu_percent()
         self.processes.append(' '.join(process.cmdline()))
                 
     def collect_data(self):
